@@ -1,25 +1,19 @@
 import './Player.css'
-// props = {name: 'Player 1', score: 43, current: 0, isActive: true}
+import { useState } from 'react'
+// Componente Jugador
+// Recibe varias propiedades. Props = {name: 'Player 1', score: 43, current: 0, isActive:}
+// Quitamos los IDs, ya que no hacen falta en react
 function Player({ name, score, current, isActive }) {
-  // const { name, score, current, isActive } = props
-
-  // let classPlayer
-  // if (isActive) {
-  //   if (score >= 100) {
-  //     classPlayer = 'player player--winner'
-  //   } else {
-  //     classPlayer = 'player player--active'
-  //   }
-  // } else {
-  //   classPlayer = 'player'
-  // }
-
-  const classPlayer = isActive
-    ? score > 100
+  //const { name, score, current, isActive } = props
+  const classPlayer =
+    score >= 100
       ? 'player player--winner'
-      : 'player player--active'
-    : 'player'
-
+      : isActive
+      ? 'player player--active'
+      : 'player'
+  console.log(
+    `Renderizando el componenete Player para ${name} con la clase ${classPlayer} y un score de ${score}`
+  )
   return (
     <section className={classPlayer}>
       <h2 className="name">{name}</h2>
